@@ -117,11 +117,7 @@ public class SetClock {
     public long calculateOffset() {
         long ntpTime = getCurrentTimeFromNtpServer();
         systemTime = getSystemTime();
-        if(ntpTime < systemTime) {
-            return 0;
-        } else {
-            diff = ntpTime - systemTime;
-        }
+        diff = systemTime - ntpTime;
         return diff;
     }
 
